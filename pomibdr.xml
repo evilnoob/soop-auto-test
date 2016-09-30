@@ -10,11 +10,11 @@
     <!--Properties-->
     <properties>
         <aspectj.version>1.8.5</aspectj.version>
-        <allure.version>1.4.23</allure.version>
+        <allure.version>1.4.19</allure.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jdk.version>1.8</jdk.version>
         <postgresql.version>9.4-1205-jdbc42</postgresql.version>
-        <selenium.version>2.53.0</selenium.version>
+        <selenium.version>2.48.2</selenium.version>
     </properties>
     <!--issueManagement>
         <system>Jira AT Consulting</system>
@@ -23,26 +23,8 @@
     <build>
         <plugins>
             <plugin>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <version>1.8</version>
-                <executions>
-                    <execution>
-                        <phase>site</phase>
-                        <configuration>
-                            <target>
-                                <copy file="${user.dir}/src/test/resources/environment.properties" overwrite="true" todir="${user.dir}/target/allure-results"/>
-                            </target>
-                        </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.5.1</version>
                 <configuration>
                     <source>${jdk.version}</source>
                     <target>${jdk.version}</target>
@@ -56,7 +38,7 @@
                 <version>2.18.1</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>testng.xml</suiteXmlFile>
+                        <suiteXmlFile>IBDR.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <testFailureIgnore>false</testFailureIgnore>
                     <argLine>
@@ -92,17 +74,7 @@
         <dependency>
             <groupId>ru.stqa.selenium</groupId>
             <artifactId>webdriver-factory</artifactId>
-            <version>2.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>${selenium.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-server</artifactId>
-            <version>${selenium.version}</version>
+            <version>1.1.46</version>
         </dependency>
         <dependency>
             <groupId>org.apache.poi</groupId>
@@ -135,6 +107,11 @@
             <version>${selenium.version}</version>
         </dependency>
         <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-htmlunit-driver</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.11</version>
@@ -157,7 +134,7 @@
         <dependency>
             <groupId>ru.yandex.qatools.allure</groupId>
             <artifactId>allure-java-annotations</artifactId>
-            <version>${allure.version}</version>
+            <version>1.4.11</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -178,7 +155,7 @@
             <plugin>
                 <groupId>ru.yandex.qatools.allure</groupId>
                 <artifactId>allure-maven-plugin</artifactId>
-                <version>2.5</version>
+                <version>2.2</version>
             </plugin>
         </plugins>
     </reporting>
