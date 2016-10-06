@@ -12,7 +12,7 @@ public class TestLoginPage extends TestNgBase{
     @Features("Авторизация")
     @Stories("Проверка авторизации")
     @Description("Выполняется проверка работы страницы авторизации")
-    @Test(priority = 1, groups = {"Authorization"})
+    @Test(priority = 1)
     public void test_LoginPage() throws Exception {
         TestEngine.executeTestFromData(driver, Login.class, "data\\Login.xlsx", "Users", "Участковый ИАЗ1");
     }
